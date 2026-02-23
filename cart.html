@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Корзина</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">VISION.</a>
+            <div class="nav-links">
+                <a href="catalog.html">Каталог</a>
+                <a href="#">Бренды</a>
+                <a href="#">Поддержка</a>
+                <a href="#" id="authBtn">Войти</a>
+                <a href="cart.html" class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal (same as index.html) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добро пожаловать</h2>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Вход</div>
+                <div class="auth-tab" data-tab="register">Регистрация</div>
+            </div>
+
+            <div class="auth-form active" id="loginForm">
+                <form id="login">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Войти</button>
+                </form>
+            </div>
+
+            <div class="auth-form" id="registerForm">
+                <form id="register">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" placeholder="Алексей" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Подтвердите пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Создать аккаунт</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a>
+            <span>/</span>
+            <span>Корзина</span>
+        </div>
+
+        <h1 class="section-title">Корзина</h1>
+
+        <div class="cart-page">
+            <div class="cart-items" id="cartItems"></div>
+
+            <div class="cart-summary">
+                <h3 style="margin-bottom: 1.5rem;">Ваш заказ</h3>
+                
+                <div class="summary-row">
+                    <span>Товары:</span>
+                    <span id="cartSubtotal">0 ₽</span>
+                </div>
+                <div class="summary-row">
+                    <span>Доставка:</span>
+                    <span id="cartShipping">500 ₽</span>
+                </div>
+                
+                <div class="promo-code">
+                    <input type="text" placeholder="Промокод">
+                    <button class="btn btn-outline" style="padding: 0.8rem 1.5rem;">Применить</button>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Итого:</span>
+                    <span id="cartTotal">0 ₽</span>
+                </div>
+
+                <button class="btn btn-large" style="width: 100%; margin-top: 1.5rem;" onclick="alert('Оформление заказа')">
+                    Оформить заказ
+                </button>
+                
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    Бесплатная доставка при заказе от 10 000 ₽
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Same footer as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">VISION.</div>
+                <p class="footer-desc">Современная игровая периферия для тех, кто ценит качество и стиль.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="catalog.html?category=keyboards">Клавиатуры</a></li>
+                    <li><a href="catalog.html?category=mice">Мыши</a></li>
+                    <li><a href="catalog.html?category=headphones">Наушники</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Покупателям</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Возврат</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>+7 (999) 123-45-67</li>
+                    <li>hello@vision.ru</li>
+                    <li>Москва, Тверская 12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 VISION. Все права защищены
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

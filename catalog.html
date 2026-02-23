@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Каталог</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">VISION.</a>
+            <div class="nav-links">
+                <a href="catalog.html" class="active">Каталог</a>
+                <a href="#">Бренды</a>
+                <a href="#">Поддержка</a>
+                <a href="#" id="authBtn">Войти</a>
+                <a href="cart.html" class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal (same as index.html) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добро пожаловать</h2>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Вход</div>
+                <div class="auth-tab" data-tab="register">Регистрация</div>
+            </div>
+
+            <div class="auth-form active" id="loginForm">
+                <form id="login">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Войти</button>
+                </form>
+            </div>
+
+            <div class="auth-form" id="registerForm">
+                <form id="register">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" placeholder="Алексей" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Подтвердите пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Создать аккаунт</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a>
+            <span>/</span>
+            <span>Каталог</span>
+        </div>
+
+        <h1 class="section-title">Каталог товаров</h1>
+
+        <div class="filter-section">
+            <div class="filter-group">
+                <h4>Категории</h4>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">Все</button>
+                    <button class="filter-btn">Клавиатуры</button>
+                    <button class="filter-btn">Мыши</button>
+                    <button class="filter-btn">Наушники</button>
+                    <button class="filter-btn">Аксессуары</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Цена</h4>
+                <div class="price-range">
+                    <input type="number" placeholder="От" id="priceMin">
+                    <input type="number" placeholder="До" id="priceMax">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Бренды</h4>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="Logitech"> Logitech
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="Razer"> Razer
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="SteelSeries"> SteelSeries
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="HyperX"> HyperX
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Наличие</h4>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="inStock"> Только в наличии
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link">5</a>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Same footer as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">VISION.</div>
+                <p class="footer-desc">Современная игровая периферия для тех, кто ценит качество и стиль.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="catalog.html?category=keyboards">Клавиатуры</a></li>
+                    <li><a href="catalog.html?category=mice">Мыши</a></li>
+                    <li><a href="catalog.html?category=headphones">Наушники</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Покупателям</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Возврат</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>+7 (999) 123-45-67</li>
+                    <li>hello@vision.ru</li>
+                    <li>Москва, Тверская 12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 VISION. Все права защищены
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

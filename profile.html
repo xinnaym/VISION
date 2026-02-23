@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Профиль</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">VISION.</a>
+            <div class="nav-links">
+                <a href="catalog.html">Каталог</a>
+                <a href="#">Бренды</a>
+                <a href="#">Поддержка</a>
+                <a href="#" id="authBtn">Алексей</a>
+                <a href="cart.html" class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a>
+            <span>/</span>
+            <span>Профиль</span>
+        </div>
+
+        <div class="profile-header">
+            <div class="profile-avatar">A</div>
+            <div class="profile-info">
+                <h2>Алексей Иванов</h2>
+                <p>alexey@vision.ru · На платформе с 2024</p>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <button class="profile-tab active" data-tab="orders">Мои заказы</button>
+            <button class="profile-tab" data-tab="settings">Настройки</button>
+            <button class="profile-tab" data-tab="wishlist">Избранное</button>
+        </div>
+
+        <div class="profile-tab-content" id="ordersTab" style="display: block;">
+            <div class="orders-list" id="ordersList"></div>
+        </div>
+
+        <div class="profile-tab-content" id="settingsTab" style="display: none;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
+                <h3 style="margin-bottom: 2rem;">Личные данные</h3>
+                
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <input type="text" value="Алексей">
+                        </div>
+                        <div class="form-group">
+                            <label>Фамилия</label>
+                            <input type="text" value="Иванов">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="alexey@vision.ru">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="tel" value="+7 (999) 123-45-67">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Адрес доставки</label>
+                        <textarea>г. Москва, ул. Тверская, д. 12, кв. 34</textarea>
+                    </div>
+                    
+                    <button class="btn">Сохранить изменения</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="profile-tab-content" id="wishlistTab" style="display: none;">
+            <div class="products-grid">
+                <!-- Wishlist items would go here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">VISION.</div>
+                <p class="footer-desc">Современная игровая периферия для тех, кто ценит качество и стиль.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="catalog.html?category=keyboards">Клавиатуры</a></li>
+                    <li><a href="catalog.html?category=mice">Мыши</a></li>
+                    <li><a href="catalog.html?category=headphones">Наушники</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Покупателям</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Возврат</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>+7 (999) 123-45-67</li>
+                    <li>hello@vision.ru</li>
+                    <li>Москва, Тверская 12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 VISION. Все права защищены
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
