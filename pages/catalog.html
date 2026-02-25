@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VISION | Корзина</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>VISION | Каталог</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">VISION.</a>
+            <a href="../index.html" class="logo">VISION.</a>
             <div class="nav-links">
-                <a href="catalog.html">Каталог</a>
-                <a href="#">Бренды</a>
-                <a href="#">Поддержка</a>
+                <a href="catalog.html" class="active">Каталог</a>
+                <a href="brands.html">Бренды</a>
                 <a href="#" id="authBtn">Войти</a>
                 <a href="cart.html" class="cart-icon">
                     🛒
@@ -76,46 +75,31 @@
 
     <main>
         <div class="breadcrumbs">
-            <a href="index.html">Главная</a>
+            <a href="../index.html">Главная</a>
             <span>/</span>
-            <span>Корзина</span>
+            <span>Каталог</span>
         </div>
 
-        <h1 class="section-title">Корзина</h1>
+        <h1 class="section-title">Каталог товаров</h1>
 
-        <div class="cart-page">
-            <div class="cart-items" id="cartItems"></div>
-
-            <div class="cart-summary">
-                <h3 style="margin-bottom: 1.5rem;">Ваш заказ</h3>
-                
-                <div class="summary-row">
-                    <span>Товары:</span>
-                    <span id="cartSubtotal">0 ₽</span>
-                </div>
-                <div class="summary-row">
-                    <span>Доставка:</span>
-                    <span id="cartShipping">500 ₽</span>
-                </div>
-                
-                <div class="promo-code">
-                    <input type="text" placeholder="Промокод">
-                    <button class="btn btn-outline" style="padding: 0.8rem 1.5rem;">Применить</button>
-                </div>
-                
-                <div class="summary-row total">
-                    <span>Итого:</span>
-                    <span id="cartTotal">0 ₽</span>
-                </div>
-
-                <button class="btn btn-large" style="width: 100%; margin-top: 1.5rem;" onclick="alert('Оформление заказа')">
-                    Оформить заказ
-                </button>
-                
-                <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
-                    Бесплатная доставка при заказе от 10 000 ₽
-                </p>
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="Клавиатуры">Клавиатуры</button>
+                <button class="filter-btn" data-category="Мыши">Мыши</button>
+                <button class="filter-btn" data-category="Наушники">Наушники</button>
+                <button class="filter-btn" data-category="Аксессуары">Аксессуары</button>
             </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link">5</a>
         </div>
     </main>
 
@@ -163,6 +147,6 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>

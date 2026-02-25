@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Бренды</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">VISION.</a>
+            <div class="nav-links">
+                <a href="catalog.html">Каталог</a>
+                <a href="brands.html" class="active">Бренды</a>
+                <a href="#" id="authBtn">Войти</a>
+                <a href="cart.html" class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добро пожаловать</h2>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Вход</div>
+                <div class="auth-tab" data-tab="register">Регистрация</div>
+            </div>
+
+            <div class="auth-form active" id="loginForm">
+                <form id="login">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Войти</button>
+                </form>
+            </div>
+
+            <div class="auth-form" id="registerForm">
+                <form id="register">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" placeholder="Алексей" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Подтвердите пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Создать аккаунт</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="../index.html">Главная</a>
+            <span>/</span>
+            <span>Бренды</span>
+        </div>
+
+        <section class="hero brands-hero">
+            <div class="hero-content">
+                <h1>Бренды, которым доверяют</h1>
+                <p>Мы сотрудничаем только с проверенными производителями игровой периферии</p>
+            </div>
+        </section>
+
+        <section class="brands-section">
+            <h2 class="section-title">Партнеры</h2>
+            <div class="brands-grid">
+                <a href="catalog.html?brand=logitech" class="brand-card">
+                    <img src="../assets/img/brands/logitech.svg" alt="Logitech" class="brand-img">
+                    <p class="brand-desc">Лидер в производстве игровой периферии</p>
+                    <span class="brand-count">156 товаров</span>
+                </a>
+                <a href="catalog.html?brand=razer" class="brand-card">
+                    <img src="../assets/img/brands/razer.svg" alt="Razer" class="brand-img">
+                    <p class="brand-desc">Легендарное качество для геймеров</p>
+                    <span class="brand-count">134 товара</span>
+                </a>
+                <a href="catalog.html?brand=steelseries" class="brand-card">
+                    <img src="../assets/img/brands/steelseries.svg" alt="SteelSeries" class="brand-img">
+                    <p class="brand-desc">Профессиональная экипировка для киберспорта</p>
+                    <span class="brand-count">98 товаров</span>
+                </a>
+                <a href="catalog.html?brand=hyperx" class="brand-card">
+                    <img src="../assets/img/brands/hyperx.svg" alt="HyperX" class="brand-img">
+                    <p class="brand-desc">Надёжность и производительность</p>
+                    <span class="brand-count">87 товаров</span>
+                </a>
+                <a href="catalog.html?brand=corsair" class="brand-card">
+                    <img src="../assets/img/brands/corsair.svg" alt="Corsair" class="brand-img">
+                    <p class="brand-desc">Премиум решения для энтузиастов</p>
+                    <span class="brand-count">112 товаров</span>
+                </a>
+                <a href="catalog.html?brand=asus" class="brand-card">
+                    <img src="../assets/img/brands/asus-rog.svg" alt="ASUS ROG" class="brand-img">
+                    <p class="brand-desc">Инновации от Republic of Gamers</p>
+                    <span class="brand-count">145 товаров</span>
+                </a>
+                <a href="catalog.html?brand=ducky" class="brand-card">
+                    <img src="../assets/img/brands/ducky.svg" alt="Ducky" class="brand-img">
+                    <p class="brand-desc">Легендарные механические клавиатуры</p>
+                    <span class="brand-count">42 товара</span>
+                </a>
+                <a href="catalog.html?brand=zowie" class="brand-card">
+                    <img src="../assets/img/brands/zowie.svg" alt="Zowie" class="brand-img">
+                    <p class="brand-desc">Выбор профессиональных киберспортсменов</p>
+                    <span class="brand-count">38 товаров</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="brands-about">
+            <h2 class="section-title">Почему мы работаем с лучшими</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Официальная гарантия</h3>
+                    <p>Все товары сертифицированы и имеют гарантию от производителя</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Отправляем в день заказа. Бесплатно при заказе от 10 000 ₽</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Проверка качества</h3>
+                    <p>Каждый товар проходит проверку перед отправкой</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Поможем с выбором и ответим на любые вопросы</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">VISION.</div>
+                <p class="footer-desc">Современная игровая периферия для тех, кто ценит качество и стиль.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="catalog.html?category=keyboards">Клавиатуры</a></li>
+                    <li><a href="catalog.html?category=mice">Мыши</a></li>
+                    <li><a href="catalog.html?category=headphones">Наушники</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Покупателям</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Возврат</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>+7 (999) 123-45-67</li>
+                    <li>hello@vision.ru</li>
+                    <li>Москва, Тверская 12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 VISION. Все права защищены
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

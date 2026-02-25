@@ -257,9 +257,9 @@ function getCartTotal() {
 function renderProducts(productsToRender) {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
-    
+
     grid.innerHTML = productsToRender.map(product => `
-        <a href="product.html?id=${product.id}" class="product-card">
+        <a href="pages/product.html?id=${product.id}" class="product-card">
             <div class="product-image">${product.icon}</div>
             <div class="product-info">
                 <div class="product-category">${product.category.toUpperCase()}</div>
@@ -289,7 +289,7 @@ function renderCartPage() {
                 <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
                 <h3 style="margin-bottom: 1rem;">Корзина пуста</h3>
                 <p style="color: var(--text-secondary); margin-bottom: 2rem;">Но это никогда не поздно исправить :)</p>
-                <a href="catalog.html" class="btn">Перейти в каталог</a>
+                <a href="pages/catalog.html" class="btn">Перейти в каталог</a>
             </div>
         `;
         
@@ -329,7 +329,7 @@ function renderProductPage() {
     const product = products.find(p => p.id === productId);
     
     if (!product) {
-        window.location.href = 'catalog.html';
+        window.location.href = 'pages/catalog.html';
         return;
     }
     
@@ -418,20 +418,43 @@ function renderProfileOrders() {
 }
 
 // Filter functions
+const categoryMap = {
+    'keyboards': 'Клавиатуры',
+    'mice': 'Мыши',
+    'headphones': 'Наушники',
+    'accessories': 'Аксессуары'
+};
+
 function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Проверяем URL-параметр category
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCategory = urlParams.get('category');
+    
+    if (urlCategory && categoryMap[urlCategory]) {
+        const categoryName = categoryMap[urlCategory];
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === categoryName) {
+                btn.classList.add('active');
+            }
+        });
+        const filtered = products.filter(p => p.category === categoryName);
+        renderProducts(filtered);
+    }
+    
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const parent = this.parentElement;
             parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
-            // Filter products logic here
-            const filter = this.textContent;
-            if (filter === 'Все') {
+
+            const category = this.dataset.category;
+            if (category === 'all') {
                 renderProducts(products);
             } else {
-                const filtered = products.filter(p => p.category === filter);
+                const filtered = products.filter(p => p.category === category);
                 renderProducts(filtered);
             }
         });

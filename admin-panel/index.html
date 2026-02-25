@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Админ-панель</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">VISION.</div>
+            
+            <nav class="admin-nav">
+                <a href="#" class="admin-nav-item active">
+                    <span class="admin-nav-icon">📦</span>
+                    Товары
+                </a>
+                <a href="#" class="admin-nav-item">
+                    <span class="admin-nav-icon">📋</span>
+                    Заказы
+                    <span class="admin-badge">12</span>
+                </a>
+                <a href="#" class="admin-nav-item">
+                    <span class="admin-nav-icon">👥</span>
+                    Пользователи
+                </a>
+                <a href="#" class="admin-nav-item">
+                    <span class="admin-nav-icon">📊</span>
+                    Аналитика
+                </a>
+                <a href="#" class="admin-nav-item">
+                    <span class="admin-nav-icon">⚙️</span>
+                    Настройки
+                </a>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <a href="../index.html" class="admin-nav-item">
+                    <span class="admin-nav-icon">🏠</span>
+                    На сайт
+                </a>
+                <a href="#" class="admin-nav-item logout">
+                    <span class="admin-nav-icon">🚪</span>
+                    Выйти
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1 class="admin-title">Управление товарами</h1>
+                <div class="admin-header-right">
+                    <button class="admin-btn admin-btn-primary" id="addProductBtn">
+                        <span>+</span> Добавить товар
+                    </button>
+                    <div class="admin-profile">
+                        <div class="admin-avatar">A</div>
+                        <span class="admin-name">Администратор</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Filters -->
+            <div class="admin-filters">
+                <div class="admin-search">
+                    <input type="text" placeholder="Поиск товаров..." class="admin-input">
+                </div>
+                <select class="admin-select">
+                    <option value="">Все категории</option>
+                    <option value="keyboards">Клавиатуры</option>
+                    <option value="mice">Мыши</option>
+                    <option value="headphones">Наушники</option>
+                    <option value="accessories">Аксессуары</option>
+                </select>
+                <select class="admin-select">
+                    <option value="">Все бренды</option>
+                    <option value="logitech">Logitech</option>
+                    <option value="razer">Razer</option>
+                    <option value="steelseries">SteelSeries</option>
+                    <option value="hyperx">HyperX</option>
+                </select>
+            </div>
+
+            <!-- Products Table -->
+            <div class="admin-content">
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Фото</th>
+                                <th>Название</th>
+                                <th>Категория</th>
+                                <th>Бренд</th>
+                                <th>Цена</th>
+                                <th>Наличие</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr class="admin-table-row">
+                                <td>
+                                    <div class="admin-product-thumb">⌨️</div>
+                                </td>
+                                <td>
+                                    <div class="admin-product-name">Механическая клавиатура PRO X</div>
+                                    <div class="admin-product-id">Артикул: VSN-001</div>
+                                </td>
+                                <td>Клавиатуры</td>
+                                <td>Logitech</td>
+                                <td>
+                                    <div class="admin-price">
+                                        <span>12 990 ₽</span>
+                                        <span class="admin-old-price">15 990 ₽</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="admin-status in-stock">В наличии</span>
+                                </td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <button class="admin-icon-btn" title="Редактировать">✏️</button>
+                                        <button class="admin-icon-btn delete" title="Удалить">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="admin-table-row">
+                                <td>
+                                    <div class="admin-product-thumb">🖱️</div>
+                                </td>
+                                <td>
+                                    <div class="admin-product-name">Игровая мышь MASTER 3S</div>
+                                    <div class="admin-product-id">Артикул: VSN-002</div>
+                                </td>
+                                <td>Мыши</td>
+                                <td>Razer</td>
+                                <td>
+                                    <div class="admin-price">
+                                        <span>6 990 ₽</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="admin-status in-stock">В наличии</span>
+                                </td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <button class="admin-icon-btn" title="Редактировать">✏️</button>
+                                        <button class="admin-icon-btn delete" title="Удалить">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="admin-table-row">
+                                <td>
+                                    <div class="admin-product-thumb">🎧</div>
+                                </td>
+                                <td>
+                                    <div class="admin-product-name">Беспроводные наушники STUDIO</div>
+                                    <div class="admin-product-id">Артикул: VSN-003</div>
+                                </td>
+                                <td>Наушники</td>
+                                <td>SteelSeries</td>
+                                <td>
+                                    <div class="admin-price">
+                                        <span>15 990 ₽</span>
+                                        <span class="admin-old-price">19 990 ₽</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="admin-status in-stock">В наличии</span>
+                                </td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <button class="admin-icon-btn" title="Редактировать">✏️</button>
+                                        <button class="admin-icon-btn delete" title="Удалить">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="admin-table-row">
+                                <td>
+                                    <div class="admin-product-thumb">⌨️</div>
+                                </td>
+                                <td>
+                                    <div class="admin-product-name">Компактная клавиатура 60%</div>
+                                    <div class="admin-product-id">Артикул: VSN-005</div>
+                                </td>
+                                <td>Клавиатуры</td>
+                                <td>Ducky</td>
+                                <td>
+                                    <div class="admin-price">
+                                        <span>8 990 ₽</span>
+                                        <span class="admin-old-price">10 990 ₽</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="admin-status out-of-stock">Нет в наличии</span>
+                                </td>
+                                <td>
+                                    <div class="admin-actions">
+                                        <button class="admin-icon-btn" title="Редактировать">✏️</button>
+                                        <button class="admin-icon-btn delete" title="Удалить">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="admin-pagination">
+                    <button class="admin-page-btn">←</button>
+                    <button class="admin-page-btn active">1</button>
+                    <button class="admin-page-btn">2</button>
+                    <button class="admin-page-btn">3</button>
+                    <button class="admin-page-btn">→</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Add/Edit Product -->
+    <div class="admin-modal" id="productModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 id="modalTitle">Добавить товар</h2>
+                <button class="admin-modal-close" id="closeModal">&times;</button>
+            </div>
+            
+            <form class="admin-form" id="productForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Название товара</label>
+                        <input type="text" class="admin-input" placeholder="Например: Механическая клавиатура PRO X" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Артикул</label>
+                        <input type="text" class="admin-input" placeholder="VSN-001" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Категория</label>
+                        <select class="admin-select" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="keyboards">Клавиатуры</option>
+                            <option value="mice">Мыши</option>
+                            <option value="headphones">Наушники</option>
+                            <option value="accessories">Аксессуары</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Бренд</label>
+                        <select class="admin-select" required>
+                            <option value="">Выберите бренд</option>
+                            <option value="logitech">Logitech</option>
+                            <option value="razer">Razer</option>
+                            <option value="steelseries">SteelSeries</option>
+                            <option value="hyperx">HyperX</option>
+                            <option value="corsair">Corsair</option>
+                            <option value="asus">ASUS ROG</option>
+                            <option value="ducky">Ducky</option>
+                            <option value="zowie">Zowie</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Цена (₽)</label>
+                        <input type="number" class="admin-input" placeholder="12990" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Старая цена (₽)</label>
+                        <input type="number" class="admin-input" placeholder="15990">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Фото товара</label>
+                    <div class="admin-file-upload">
+                        <input type="file" id="productPhoto" accept="image/*">
+                        <div class="admin-upload-placeholder">
+                            <span>📷</span>
+                            <p>Перетащите фото сюда или нажмите для выбора</p>
+                        </div>
+                        <div class="admin-preview" id="photoPreview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Описание</label>
+                    <textarea class="admin-input admin-textarea" rows="4" placeholder="Опишите товар..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Наличие</label>
+                        <select class="admin-select" required>
+                            <option value="true">В наличии</option>
+                            <option value="false">Нет в наличии</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Рейтинг</label>
+                        <input type="number" step="0.1" min="0" max="5" class="admin-input" placeholder="4.8">
+                    </div>
+                </div>
+
+                <div class="admin-form-actions">
+                    <button type="button" class="admin-btn admin-btn-outline" id="cancelBtn">Отмена</button>
+                    <button type="submit" class="admin-btn admin-btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Delete Confirmation -->
+    <div class="admin-modal" id="deleteModal">
+        <div class="admin-modal-content admin-modal-small">
+            <div class="admin-modal-header">
+                <h2>Удаление товара</h2>
+                <button class="admin-modal-close" id="closeDeleteModal">&times;</button>
+            </div>
+            
+            <div class="admin-delete-content">
+                <div class="admin-delete-icon">🗑️</div>
+                <p>Вы уверены, что хотите удалить этот товар?</p>
+                <p class="admin-delete-warning">Это действие нельзя отменить</p>
+            </div>
+
+            <div class="admin-form-actions">
+                <button class="admin-btn admin-btn-outline" id="cancelDeleteBtn">Отмена</button>
+                <button class="admin-btn admin-btn-danger" id="confirmDeleteBtn">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>
