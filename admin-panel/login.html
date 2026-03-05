@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Вход в админку</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/img/favico/V.svg" type="image/x-icon">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">VISION.</div>
+                <p class="login-subtitle">Вход в панель администратора</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="login-error" id="loginError"></div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="admin@vision.ru" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    Войти
+                </button>
+            </form>
+
+            <div class="login-links">
+                <a href="../index.html">← Вернуться на сайт</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Проверка авторизации
+        const token = localStorage.getItem('adminToken');
+        if (token) {
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('loginError');
+            const loginBtn = document.getElementById('loginBtn');
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Вход...';
+            errorEl.classList.remove('active');
+
+            try {
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Проверка на админа
+                    if (result.data.role !== 'admin') {
+                        errorEl.textContent = 'У вас нет прав администратора';
+                        errorEl.classList.add('active');
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = 'Войти';
+                        return;
+                    }
+
+                    // Сохранение токена
+                    localStorage.setItem('adminToken', result.token);
+                    window.location.href = 'index.html';
+                } else {
+                    errorEl.textContent = result.message || 'Неверный email или пароль';
+                    errorEl.classList.add('active');
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Войти';
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                errorEl.textContent = 'Ошибка соединения с сервером';
+                errorEl.classList.add('active');
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Войти';
+            }
+        });
+    </script>
+</body>
+</html>

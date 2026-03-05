@@ -355,7 +355,9 @@ function renderCartPage() {
     
     cartItems.innerHTML = cart.map(item => `
         <div class="cart-item">
-            <div class="cart-item-image">${item.icon}</div>
+            <div class="cart-item-image">
+                <img src="${item.icon}" alt="${item.name}" onerror="this.onerror=null; this.src='../assets/img/placeholder.jpg'">
+            </div>
             <div class="cart-item-info">
                 <h3>${item.name}</h3>
                 <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
@@ -581,32 +583,46 @@ function initFilters() {
 }
 
 // Auth modal
+const API_URL = 'http://localhost:3000/api';
+
 function initAuthModal() {
     const modal = document.getElementById('authModal');
     const authBtn = document.getElementById('authBtn');
     const closeModal = document.getElementById('closeModal');
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
-    
+
     if (!modal || !authBtn) return;
-    
+
+    // Проверка авторизации при загрузке
+    checkAuth();
+
     authBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        modal.classList.add('active');
+        const token = localStorage.getItem('token');
+        if (token) {
+            // Если уже авторизован - идём в профиль
+            const path = window.location.pathname;
+            const isInPagesFolder = path.includes('pages/');
+            const profilePath = isInPagesFolder ? 'profile.html' : 'pages/profile.html';
+            window.location.href = profilePath;
+        } else {
+            modal.classList.add('active');
+        }
     });
-    
+
     if (closeModal) {
         closeModal.addEventListener('click', () => {
             modal.classList.remove('active');
         });
     }
-    
+
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
         }
     });
-    
+
     authTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabName = tab.dataset.tab;
@@ -616,25 +632,122 @@ function initAuthModal() {
             document.getElementById(`${tabName}Form`).classList.add('active');
         });
     });
-    
-    // Form submissions
+
+    // Вход
     const loginForm = document.getElementById('login');
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            modal.classList.remove('active');
-            showToast('Добро пожаловать!');
+            const email = loginForm.querySelector('input[type="email"]').value;
+            const password = loginForm.querySelector('input[type="password"]').value;
+
+            try {
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('user', JSON.stringify(result.data));
+                    modal.classList.remove('active');
+                    
+                    // Если админ - редирект в админку
+                    if (result.data.role === 'admin') {
+                        localStorage.setItem('adminToken', result.token);
+                        window.location.href = 'admin-panel/index.html';
+                    } else {
+                        showToast(`Добро пожаловать, ${result.data.name}!`);
+                        updateAuthButton();
+                    }
+                } else {
+                    showToast(result.message || 'Ошибка входа');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showToast('Ошибка соединения с сервером');
+            }
         });
     }
-    
+
+    // Регистрация
     const registerForm = document.getElementById('register');
     if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
+        registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            modal.classList.remove('active');
-            showToast('Аккаунт создан');
+            const name = registerForm.querySelector('input[type="text"]').value;
+            const email = registerForm.querySelector('input[type="email"]').value;
+            const password = registerForm.querySelectorAll('input[type="password"]')[0].value;
+            const confirmPassword = registerForm.querySelectorAll('input[type="password"]')[1].value;
+
+            if (password !== confirmPassword) {
+                showToast('Пароли не совпадают');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, name })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    localStorage.setItem('token', result.token);
+                    localStorage.setItem('user', JSON.stringify(result.data));
+                    modal.classList.remove('active');
+                    showToast('Аккаунт создан!');
+                    updateAuthButton();
+                } else {
+                    showToast(result.message || 'Ошибка регистрации');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showToast('Ошибка соединения с сервером');
+            }
         });
     }
+}
+
+// Проверка авторизации
+function checkAuth() {
+    const token = localStorage.getItem('token');
+    const authBtn = document.getElementById('authBtn');
+    
+    if (token && authBtn) {
+        updateAuthButton();
+    }
+}
+
+// Обновление кнопки авторизации
+function updateAuthButton() {
+    const authBtn = document.getElementById('authBtn');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    
+    if (authBtn && user.name) {
+        // Определяем путь в зависимости от текущей страницы
+        const path = window.location.pathname;
+        const isInPagesFolder = path.includes('pages/');
+        const profilePath = isInPagesFolder ? 'profile.html' : 'pages/profile.html';
+        
+        authBtn.textContent = 'Профиль';
+        authBtn.href = profilePath;
+        authBtn.style.color = 'var(--accent)';
+        authBtn.style.fontWeight = '600';
+    }
+}
+
+// Выход
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('adminToken');
+    window.location.href = 'index.html';
 }
 
 // Profile tabs
@@ -695,7 +808,9 @@ function renderCartSidebar() {
     
     cartItems.innerHTML = cart.map(item => `
         <div class="cart-item">
-            <div class="cart-item-image">${item.icon}</div>
+            <div class="cart-item-image">
+                <img src="${item.icon}" alt="${item.name}" onerror="this.onerror=null; this.src='../assets/img/placeholder.jpg'">
+            </div>
             <div class="cart-item-info">
                 <div class="cart-item-title">${item.name}</div>
                 <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
@@ -728,3 +843,5 @@ function showToast(message) {
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateCartItemQuantity = updateCartItemQuantity;
+window.updateAuthButton = updateAuthButton;
+window.logout = logout;

@@ -79,6 +79,11 @@ nav {
     color: var(--text);
 }
 
+.nav-links a.auth-user {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 .cart-icon {
     position: relative;
     cursor: pointer;
@@ -1364,3 +1369,9 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Import page-specific styles */
+@import url('profile.css');
+@import url('product.css');
+@import url('faq.css');
+@import url('admin-login.css');

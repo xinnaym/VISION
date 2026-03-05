@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VISION | Профиль</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
     <link rel="shortcut icon" href="../assets/img/favico/V.svg" type="image/x-icon">
 </head>
 <body>
@@ -14,7 +15,7 @@
             <div class="nav-links">
                 <a href="catalog.html">Каталог</a>
                 <a href="brands.html">Бренды</a>
-                <a href="#" id="authBtn">Алексей</a>
+                <a href="#" id="authBtn">Профиль</a>
                 <a href="cart.html" class="cart-icon">
                     🛒
                     <span class="cart-count">0</span>
@@ -31,62 +32,24 @@
         </div>
 
         <div class="profile-header">
-            <div class="profile-avatar">A</div>
+            <div class="profile-avatar" id="profileAvatar">U</div>
             <div class="profile-info">
-                <h2>Алексей Иванов</h2>
-                <p>alexey@vision.ru · На платформе с 2024</p>
+                <h2 id="profileName">Профиль</h2>
+                <p id="profileEmail">...</p>
             </div>
+            <button class="btn btn-logout" id="headerLogoutBtn">Выйти</button>
         </div>
 
         <div class="profile-tabs">
             <button class="profile-tab active" data-tab="orders">Мои заказы</button>
-            <button class="profile-tab" data-tab="settings">Настройки</button>
-            <button class="profile-tab" data-tab="wishlist">Избранное</button>
         </div>
 
-        <div class="profile-tab-content" id="ordersTab" style="display: block;">
-            <div class="orders-list" id="ordersList"></div>
-        </div>
-
-        <div class="profile-tab-content" id="settingsTab" style="display: none;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem;">
-                <h3 style="margin-bottom: 2rem;">Личные данные</h3>
-                
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Имя</label>
-                            <input type="text" value="Алексей">
-                        </div>
-                        <div class="form-group">
-                            <label>Фамилия</label>
-                            <input type="text" value="Иванов">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" value="alexey@vision.ru">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Телефон</label>
-                        <input type="tel" value="+7 (999) 123-45-67">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Адрес доставки</label>
-                        <textarea>г. Москва, ул. Тверская, д. 12, кв. 34</textarea>
-                    </div>
-                    
-                    <button class="btn">Сохранить изменения</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="profile-tab-content" id="wishlistTab" style="display: none;">
-            <div class="products-grid">
-                <!-- Wishlist items would go here -->
+        <div class="profile-tab-content active" id="ordersTab">
+            <div class="orders-list" id="ordersList">
+                <div class="empty-orders">
+                    <h3>Заказов пока нет</h3>
+                    <a href="catalog.html" class="btn">Перейти в каталог</a>
+                </div>
             </div>
         </div>
     </main>
@@ -129,10 +92,100 @@
             </div>
         </div>
         <div class="copyright">
-            © 2024 VISION. Все права защищены
+            © 2026 VISION. Все права защищены
         </div>
     </footer>
 
     <script src="../assets/js/main.js"></script>
+    <script>
+        // Проверка авторизации
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+        if (!token || !user.email) {
+            window.location.href = '../index.html';
+        }
+
+        // Заполнение профиля сразу, не ждём DOMContentLoaded
+        document.getElementById('profileName').textContent = user.name || 'Пользователь';
+        document.getElementById('profileEmail').textContent = user.email;
+        document.getElementById('profileAvatar').textContent = (user.name || 'U')[0].toUpperCase();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка заказов
+            loadOrders();
+
+            // Выход - вешаем на кнопку в хедере
+            const logoutBtn = document.getElementById('headerLogoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('adminToken');
+                    window.location.replace('../index.html');
+                });
+            }
+        });
+
+        // Загрузка заказов
+        async function loadOrders() {
+            const API_URL = 'http://localhost:3000/api';
+            const ordersList = document.getElementById('ordersList');
+            const token = localStorage.getItem('token');
+
+            try {
+                const response = await fetch(`${API_URL}/orders`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.success && result.data.length > 0) {
+                    ordersList.innerHTML = result.data.map(order => `
+                        <div class="order-item">
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">Заказ #${order.id}</h4>
+                                <p style="color: var(--text-secondary);">${new Date(order.created_at).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p style="margin-top: 0.5rem;">${order.items.map(i => i.name).join(', ')}</p>
+                            </div>
+                            <div>
+                                <span class="order-status status-${order.status}">
+                                    ${getStatusText(order.status)}
+                                </span>
+                            </div>
+                            <div style="font-weight: 700; color: var(--accent);">
+                                ${order.total.toLocaleString()} ₽
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    ordersList.innerHTML = `
+                        <div class="empty-orders">
+                            <h3>Заказов пока нет</h3>
+                            <a href="catalog.html" class="btn">Перейти в каталог</a>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки заказов:', error);
+                ordersList.innerHTML = '<div class="empty-orders"><p>Ошибка загрузки заказов</p></div>';
+            }
+        }
+
+        function getStatusText(status) {
+            const statuses = {
+                'pending': 'В обработке',
+                'processing': 'Собирается',
+                'shipped': 'Отправлен',
+                'delivered': 'Доставлен',
+                'cancelled': 'Отменён'
+            };
+            return statuses[status] || status;
+        }
+    </script>
 </body>
 </html>

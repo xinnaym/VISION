@@ -525,6 +525,17 @@
     margin-top: 1rem;
 }
 
+/* Spec Row */
+.spec-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.spec-row .admin-input {
+    flex: 1;
+}
+
 /* Delete Modal */
 .admin-delete-content {
     text-align: center;
