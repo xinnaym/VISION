@@ -4,60 +4,60 @@
 const products = [
     {
         id: 1,
-        name: 'Механическая клавиатура PRO X',
+        name: 'AULA F75',
         category: 'Клавиатуры',
-        price: 12990,
-        oldPrice: 15990,
+        price: 4399,
+        oldPrice: 0,
         rating: 4.8,
         reviews: 124,
-        icon: '⌨️',
+        icon: '../assets/img/products/AULA_F75.jpg',
         inStock: true,
-        brand: 'Logitech',
+        brand: 'AULA',
         specs: {
             switch: 'Cherry MX Red',
             layout: 'ANSI',
             backlight: 'RGB',
-            connection: 'USB-C'
+            connection: ' Bluetooth, USB Type-A, радиоканал'
         },
-        description: 'Профессиональная механическая клавиатура с переключателями Cherry MX Red. Идеально подходит для игр и печати благодаря линейному ходу и тихой работе.'
+        description: ''
     },
     {
         id: 2,
-        name: 'Игровая мышь MASTER 3S',
+        name: 'Logitech G PRO X SUPERLIGHT 2',
         category: 'Мыши',
-        price: 6990,
-        oldPrice: 8990,
+        price: 13999,
+        oldPrice: 0,
         rating: 4.9,
         reviews: 89,
-        icon: '🖱️',
+        icon: '../assets/img/products/LOGITECH_SUPERLIGHT_2.jpg',
         inStock: true,
-        brand: 'Razer',
+        brand: 'Logitech',
         specs: {
-            sensor: '26000 DPI',
-            buttons: '8 программируемых',
-            weight: '75g',
-            connection: 'Проводная'
+            sensor: '44000 DPI',
+            buttons: '5 программируемых',
+            weight: '60g',
+            connection: 'Радиоканал'
         },
-        description: 'Легендарная игровая мышь с сенсором 26000 DPI и оптическими переключателями.'
+        description: ''
     },
     {
         id: 3,
-        name: 'Беспроводные наушники STUDIO',
+        name: 'Logitech G435',
         category: 'Наушники',
-        price: 15990,
-        oldPrice: 19990,
+        price: 5399,
+        oldPrice: 0,
         rating: 4.7,
         reviews: 56,
-        icon: '🎧',
+        icon: '../assets/img/products/LOGITECH_G435.jpg',
         inStock: true,
-        brand: 'SteelSeries',
+        brand: 'Logitech',
         specs: {
             type: 'Закрытые',
-            frequency: '20Hz - 40kHz',
-            battery: '30 часов',
-            connection: 'Bluetooth 5.2'
+            frequency: '20Hz - 20kHz',
+            battery: 'До 18 часов',
+            connection: 'Bluetooth, радиоканал'
         },
-        description: 'Студийные беспроводные наушники с активным шумоподавлением и высоким разрешением.'
+        description: ''
     },
     {
         id: 4,
@@ -66,88 +66,88 @@ const products = [
         price: 2990,
         rating: 4.9,
         reviews: 312,
-        icon: '⚡',
+        icon: '../assets/img/products/DARK_PROJECT_MD3A.jpg',
         inStock: true,
-        brand: 'HyperX',
+        brand: 'Dark Project',
         specs: {
             size: '900x400mm',
             material: 'Ткань',
             thickness: '4mm',
             base: 'Резиновый'
         },
-        description: 'Огромный игровой коврик с оптимизированной поверхностью для точного трекинга.'
+        description: ''
     },
     {
         id: 5,
-        name: 'Компактная клавиатура 60%',
+        name: 'ARDOR GAMING Viper',
         category: 'Клавиатуры',
         price: 8990,
         oldPrice: 10990,
         rating: 4.6,
         reviews: 43,
-        icon: '⌨️',
+        icon: '../assets/img/products/ARDOR_GAMING_Viper.jpg',
         inStock: true,
-        brand: 'Ducky',
+        brand: 'ARDOR',
         specs: {
-            switch: 'Cherry MX Brown',
-            layout: '60%',
+            switch: 'CSA Gateron Magnetic',
+            layout: '75%',
             backlight: 'RGB',
-            connection: 'USB-C'
+            connection: ' USB Type-A'
         },
-        description: 'Компактная 60% клавиатура для минималистов и путешественников.'
+        description: ''
     },
     {
         id: 6,
-        name: 'Мышь для киберспорта PRO',
+        name: 'Attack Shark R5 Ultra',
         category: 'Мыши',
-        price: 8490,
+        price: 5899,
         rating: 4.8,
         reviews: 67,
-        icon: '🖱️',
+        icon: '../assets/img/products/SHARK_R5.jpg',
         inStock: true,
-        brand: 'Zowie',
+        brand: 'Attack Shark',
         specs: {
-            sensor: '3360',
-            buttons: '5',
-            weight: '70g',
-            connection: 'Проводная'
+            sensor: '44000 DPI',
+            buttons: '7',
+            weight: '42g',
+            connection: 'Bluetooth, радиоканал'
         },
-        description: 'Мышь, созданная для профессионального киберспорта. Минимальный вес и максимальная точность.'
+        description: ''
     },
     {
         id: 7,
-        name: 'Студийные наушники PRO',
+        name: 'ARDOR GAMING Vault',
         category: 'Наушники',
         price: 22990,
         rating: 4.9,
         reviews: 28,
-        icon: '🎧',
+        icon: '../assets/img/products/ARDOR_GAMING_Vault.jpg',
         inStock: false,
-        brand: 'Beyerdynamic',
+        brand: 'ARDOR',
         specs: {
-            type: 'Открытые',
-            frequency: '5Hz - 50kHz',
-            impedance: '250 Ohm',
-            connection: 'Проводной'
+            type: 'Закрытые',
+            frequency: '20Hz - 20kHz',
+            battery: 'до 28 часов',
+            connection: 'Bluetooth, проводной, радиоканал'
         },
-        description: 'Профессиональные студийные наушники для точного мониторинга.'
+        description: ''
     },
     {
         id: 8,
-        name: 'Держатель для наушников',
+        name: 'Подставка для наушников',
         category: 'Аксессуары',
-        price: 1990,
+        price: 1499,
         rating: 4.5,
         reviews: 91,
-        icon: '⚡',
+        icon: '../assets/img/products/ARDOR_GAMING_Hill.jpg',
         inStock: true,
-        brand: 'Generic',
+        brand: 'ARDOR',
         specs: {
-            mount: 'Струбцина',
-            material: 'Алюминий',
-            rgb: '16.8M цветов'
+            mount: 'настольная',
+            material: 'Пластик',
+            rgb: 'RGB'
         },
-        description: 'Стильный держатель для наушников с RGB подсветкой.'
+        description: ''
     }
 ];
 
@@ -260,7 +260,10 @@ function renderProducts(productsToRender) {
 
     grid.innerHTML = productsToRender.map(product => `
         <a href="pages/product.html?id=${product.id}" class="product-card">
-            <div class="product-image">${product.icon}</div>
+            <div class="product-image">
+                <img src="${product.icon}" alt="${product.name}" 
+                     onerror="this.onerror=null; this.src='../img/placeholder.jpg'">
+            </div>
             <div class="product-info">
                 <div class="product-category">${product.category.toUpperCase()}</div>
                 <div class="product-title">${product.name}</div>
@@ -275,7 +278,6 @@ function renderProducts(productsToRender) {
         </a>
     `).join('');
 }
-
 function renderCartPage() {
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
@@ -288,7 +290,7 @@ function renderCartPage() {
             <div style="text-align: center; padding: 3rem;">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
                 <h3 style="margin-bottom: 1rem;">Корзина пуста</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Но это никогда не поздно исправить :)</p>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Но это никогда не поздно исправить</p>
                 <a href="pages/catalog.html" class="btn">Перейти в каталог</a>
             </div>
         `;
@@ -333,7 +335,7 @@ function renderProductPage() {
         return;
     }
     
-    document.getElementById('productMainImage').textContent = product.icon;
+    document.getElementById('productMainImage').textContent = url;
     document.getElementById('productTitle').textContent = product.name;
     document.getElementById('productPrice').textContent = `${product.price.toLocaleString()} ₽`;
     document.getElementById('productOldPrice').textContent = product.oldPrice ? `${product.oldPrice.toLocaleString()} ₽` : '';
