@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION | Доставка, оплата, гарантия и возврат</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/img/favico/V.svg" type="image/x-icon">
+    <style>
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">VISION.</a>
+            <div class="nav-links">
+                <a href="catalog.html">Каталог</a>
+                <a href="brands.html">Бренды</a>
+                <a href="#" id="authBtn">Войти</a>
+                <a href="cart.html" class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добро пожаловать</h2>
+                <span class="close-modal" id="closeModal">&times;</span>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Вход</div>
+                <div class="auth-tab" data-tab="register">Регистрация</div>
+            </div>
+
+            <div class="auth-form active" id="loginForm">
+                <form id="login">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Войти</button>
+                </form>
+            </div>
+
+            <div class="auth-form" id="registerForm">
+                <form id="register">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" placeholder="Алексей" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="hello@vision.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Подтвердите пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Создать аккаунт</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="../index.html">Главная</a>
+            <span>/</span>
+            <span>Информация</span>
+        </div>
+
+        <h1 class="section-title">Информация для покупателей</h1>
+
+        <div class="faq-body">
+            <section id="delivery" class="faq-section">
+                    <h2>Доставка</h2>
+                    
+                    <div class="faq-item">
+                        <h3>Сроки доставки</h3>
+                        <p>Доставка по Москве осуществляется в течение 1-2 рабочих дней. В другие регионы России — от 2 до 7 дней в зависимости от удалённости населённого пункта.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Стоимость доставки</h3>
+                        <p>Доставка по Москве при заказе от 5000 ₽ — бесплатно. При заказе на сумму менее 5000 ₽ — 500 ₽. Доставка в регионы рассчитывается индивидуально в зависимости от веса и габаритов заказа.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Способы доставки</h3>
+                        <p>Мы доставляем заказы курьерской службой до двери, пунктами выдачи заказов, а также через постаматы и отделения Почты России.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Самовывоз</h3>
+                        <p>Вы можете забрать заказ самостоятельно из нашего магазина в Москве по адресу: ул. Тверская, д. 12. Для этого выберите способ «Самовывоз» при оформлении заказа.</p>
+                    </div>
+                </section>
+
+                <section id="payment" class="faq-section">
+                    <h2>Оплата</h2>
+                    
+                    <div class="faq-item">
+                        <h3>Способы оплаты</h3>
+                        <p>Оплата производится банковскими картами Visa, MasterCard, МИР через защищённый платёжный шлюз. Также возможна оплата при получении курьеру или в пункте выдачи.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Оплата в рассрочку</h3>
+                        <p>На некоторые товары доступна рассрочка на 6, 12 или 24 месяца. Условия рассрочки уточняйте у менеджеров или на странице товара.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Безналичный расчёт</h3>
+                        <p>Для юридических лиц возможна оплата по счёту. Свяжитесь с нами для выставления счёта на оплату.</p>
+                    </div>
+                </section>
+
+                <section id="warranty" class="faq-section">
+                    <h2>Гарантия</h2>
+                    
+                    <div class="faq-item">
+                        <h3>Гарантийный срок</h3>
+                        <p>На все товары действует официальная гарантия от производителя. Срок гарантии составляет от 12 до 36 месяцев в зависимости от категории товара и бренда.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Гарантийное обслуживание</h3>
+                        <p>В случае обнаружения недостатков в течение гарантийного срока вы можете обратиться в наш сервисный центр для бесплатного ремонта или замены товара.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Что не покрывается гарантией</h3>
+                        <p>Гарантия не распространяется на повреждения, вызванные неправильной эксплуатацией, механическими воздействиями, попаданием жидкости внутрь устройства, а также на естественный износ.</p>
+                    </div>
+                </section>
+
+                <section id="return" class="faq-section">
+                    <h2>Возврат</h2>
+                    
+                    <div class="faq-item">
+                        <h3>Возврат в течение 14 дней</h3>
+                        <p>Вы можете вернуть товар надлежащего качества в течение 14 дней с момента покупки при условии сохранения товарного вида, упаковки и всех комплектующих.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Возврат бракованного товара</h3>
+                        <p>Товар с производственным браком можно вернуть в течение всего гарантийного срока. Для этого необходимо предоставить товар и документ, подтверждающий покупку.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Оформление возврата</h3>
+                        <p>Для оформления возврата свяжитесь с нашей службой поддержки или заполните форму возврата в личном кабинете. Мы рассмотрим вашу заявку в течение 3 рабочих дней.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Возврат денежных средств</h3>
+                        <p>Денежные средства возвращаются тем же способом, которым была произведена оплата. Срок зачисления средств зависит от вашего банка и составляет от 3 до 10 рабочих дней.</p>
+                    </div>
+                </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">VISION.</div>
+                <p class="footer-desc">Современная игровая периферия для тех, кто ценит качество и стиль.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><img src="../assets/img/social/social-vk.png" alt="vk-icon"></a>
+                    <a href="#" class="social-link"><img src="../assets/img/social/social-telegram.png" alt="telegram-icon"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="catalog.html?category=keyboards">Клавиатуры</a></li>
+                    <li><a href="catalog.html?category=mice">Мыши</a></li>
+                    <li><a href="catalog.html?category=headphones">Наушники</a></li>
+                    <li><a href="catalog.html?category=accessories">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Покупателям</h4>
+                <ul>
+                    <li><a href="faq.html#delivery">Доставка</a></li>
+                    <li><a href="faq.html#payment">Оплата</a></li>
+                    <li><a href="faq.html#warranty">Гарантия</a></li>
+                    <li><a href="faq.html#return">Возврат</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>+7 (999) 123-45-67</li>
+                    <li>hello@vision.ru</li>
+                    <li>Москва, Тверская 12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 VISION. Все права защищены
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

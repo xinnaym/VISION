@@ -10,14 +10,20 @@ const products = [
         oldPrice: 0,
         rating: 4.8,
         reviews: 124,
-        icon: '../assets/img/products/AULA_F75.jpg',
+        icon: '../assets/img/products/aula-f75/1.jpg',
+        images: [
+            '../assets/img/products/aula-f75/1.jpg',
+            '../assets/img/products/aula-f75/2.jpg',
+            '../assets/img/products/aula-f75/3.jpg',
+            '../assets/img/products/aula-f75/4.jpg'
+        ],
         inStock: true,
         brand: 'AULA',
         specs: {
-            switch: 'Cherry MX Red',
-            layout: 'ANSI',
-            backlight: 'RGB',
-            connection: ' Bluetooth, USB Type-A, радиоканал'
+            'Переключатели': 'Cherry MX Red',
+            'Размер': '75%',
+            'Подсветка': 'RGB',
+            'Подключение': 'Bluetooth, USB Type-A, радиоканал'
         },
         description: ''
     },
@@ -29,14 +35,20 @@ const products = [
         oldPrice: 0,
         rating: 4.9,
         reviews: 89,
-        icon: '../assets/img/products/LOGITECH_SUPERLIGHT_2.jpg',
+        icon: '../assets/img/products/logitech-superlight-2/1.jpg',
+        images: [
+            '../assets/img/products/logitech-superlight-2/1.jpg',
+            '../assets/img/products/logitech-superlight-2/2.jpg',
+            '../assets/img/products/logitech-superlight-2/3.jpg',
+            '../assets/img/products/logitech-superlight-2/4.jpg'
+        ],
         inStock: true,
         brand: 'Logitech',
         specs: {
-            sensor: '44000 DPI',
-            buttons: '5 программируемых',
-            weight: '60g',
-            connection: 'Радиоканал'
+            'Сенсор': '44000 DPI',
+            'Кнопки': '5 программируемых',
+            'Вес': '60g',
+            'Подключение': 'Радиоканал'
         },
         description: ''
     },
@@ -48,14 +60,20 @@ const products = [
         oldPrice: 0,
         rating: 4.7,
         reviews: 56,
-        icon: '../assets/img/products/LOGITECH_G435.jpg',
+        icon: '../assets/img/products/logitech-g435/1.jpg',
+        images: [
+            '../assets/img/products/logitech-g435/1.jpg',
+            '../assets/img/products/logitech-g435/2.jpg',
+            '../assets/img/products/logitech-g435/3.jpg',
+            '../assets/img/products/logitech-g435/4.jpg'
+        ],
         inStock: true,
         brand: 'Logitech',
         specs: {
-            type: 'Закрытые',
-            frequency: '20Hz - 20kHz',
-            battery: 'До 18 часов',
-            connection: 'Bluetooth, радиоканал'
+            'Тип': 'Закрытые',
+            'Диапазон частот': '20Hz - 20kHz',
+            'Время работы': 'До 18 часов',
+            'Подключение': 'Bluetooth, радиоканал'
         },
         description: ''
     },
@@ -66,14 +84,20 @@ const products = [
         price: 2990,
         rating: 4.9,
         reviews: 312,
-        icon: '../assets/img/products/DARK_PROJECT_MD3A.jpg',
+        icon: '../assets/img/products/dark-project-md3a/1.jpg',
+        images: [
+            '../assets/img/products/dark-project-md3a/1.jpg',
+            '../assets/img/products/dark-project-md3a/2.jpg',
+            '../assets/img/products/dark-project-md3a/3.jpg',
+            '../assets/img/products/dark-project-md3a/4.jpg'
+        ],
         inStock: true,
         brand: 'Dark Project',
         specs: {
-            size: '900x400mm',
-            material: 'Ткань',
-            thickness: '4mm',
-            base: 'Резиновый'
+            'Размер': '900x400mm',
+            'Материал': 'Ткань',
+            'Толщина': '4mm',
+            'Основание': 'Резина'
         },
         description: ''
     },
@@ -85,14 +109,20 @@ const products = [
         oldPrice: 10990,
         rating: 4.6,
         reviews: 43,
-        icon: '../assets/img/products/ARDOR_GAMING_Viper.jpg',
+        icon: '../assets/img/products/ardor-viper/1.jpg',
+        images: [
+            '../assets/img/products/ardor-viper/1.jpg',
+            '../assets/img/products/ardor-viper/2.jpg',
+            '../assets/img/products/ardor-viper/3.jpg',
+            '../assets/img/products/ardor-viper/4.jpg'
+        ],
         inStock: true,
         brand: 'ARDOR',
         specs: {
-            switch: 'CSA Gateron Magnetic',
-            layout: '75%',
-            backlight: 'RGB',
-            connection: ' USB Type-A'
+            'Переключатели': 'CSA Gateron Magnetic',
+            'Размер': '75%',
+            'Подсветка': 'RGB',
+            'Подключение': 'USB Type-A'
         },
         description: ''
     },
@@ -103,14 +133,20 @@ const products = [
         price: 5899,
         rating: 4.8,
         reviews: 67,
-        icon: '../assets/img/products/SHARK_R5.jpg',
+        icon: '../assets/img/products/shark-r5/1.jpg',
+        images: [
+            '../assets/img/products/shark-r5/1.jpg',
+            '../assets/img/products/shark-r5/2.jpg',
+            '../assets/img/products/shark-r5/3.jpg',
+            '../assets/img/products/shark-r5/4.jpg'
+        ],
         inStock: true,
         brand: 'Attack Shark',
         specs: {
-            sensor: '44000 DPI',
-            buttons: '7',
-            weight: '42g',
-            connection: 'Bluetooth, радиоканал'
+            'Сенсор': '44000 DPI',
+            'Кнопки': '7',
+            'Вес': '42g',
+            'Подключение': 'Bluetooth, радиоканал'
         },
         description: ''
     },
@@ -121,14 +157,20 @@ const products = [
         price: 22990,
         rating: 4.9,
         reviews: 28,
-        icon: '../assets/img/products/ARDOR_GAMING_Vault.jpg',
+        icon: '../assets/img/products/ardor-vault/1.jpg',
+        images: [
+            '../assets/img/products/ardor-vault/1.jpg',
+            '../assets/img/products/ardor-vault/2.jpg',
+            '../assets/img/products/ardor-vault/3.jpg',
+            '../assets/img/products/ardor-vault/4.jpg'
+        ],
         inStock: false,
         brand: 'ARDOR',
         specs: {
-            type: 'Закрытые',
-            frequency: '20Hz - 20kHz',
-            battery: 'до 28 часов',
-            connection: 'Bluetooth, проводной, радиоканал'
+            'Тип': 'Закрытые',
+            'Диапазон частот': '20Hz - 20kHz',
+            'Время работы': 'до 28 часов',
+            'Подключение': 'Bluetooth, проводной, радиоканал'
         },
         description: ''
     },
@@ -139,13 +181,19 @@ const products = [
         price: 1499,
         rating: 4.5,
         reviews: 91,
-        icon: '../assets/img/products/ARDOR_GAMING_Hill.jpg',
+        icon: '../assets/img/products/ardor-hill/1.jpg',
+        images: [
+            '../assets/img/products/ardor-hill/1.jpg',
+            '../assets/img/products/ardor-hill/2.jpg',
+            '../assets/img/products/ardor-hill/3.jpg',
+            '../assets/img/products/ardor-hill/4.jpg'
+        ],
         inStock: true,
         brand: 'ARDOR',
         specs: {
-            mount: 'настольная',
-            material: 'Пластик',
-            rgb: 'RGB'
+            'Крепление': 'настольная',
+            'Материал': 'Пластик',
+            'Подсветка': 'RGB'
         },
         description: ''
     }
@@ -258,10 +306,13 @@ function renderProducts(productsToRender) {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
 
+    // Определяем базовый путь в зависимости от текущей страницы
+    const basePath = window.location.pathname.includes('/pages/') ? '' : 'pages/';
+
     grid.innerHTML = productsToRender.map(product => `
-        <a href="pages/product.html?id=${product.id}" class="product-card">
+        <a href="${basePath}product.html?id=${product.id}" class="product-card">
             <div class="product-image">
-                <img src="${product.icon}" alt="${product.name}" 
+                <img src="${product.icon}" alt="${product.name}"
                      onerror="this.onerror=null; this.src='../img/placeholder.jpg'">
             </div>
             <div class="product-info">
@@ -286,12 +337,14 @@ function renderCartPage() {
     if (!cartItems) return;
     
     if (cart.length === 0) {
+        const basePath = window.location.pathname.includes('/pages/') ? '' : 'pages/';
+        
         cartItems.innerHTML = `
             <div style="text-align: center; padding: 3rem;">
                 <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
                 <h3 style="margin-bottom: 1rem;">Корзина пуста</h3>
                 <p style="color: var(--text-secondary); margin-bottom: 2rem;">Но это никогда не поздно исправить</p>
-                <a href="pages/catalog.html" class="btn">Перейти в каталог</a>
+                <a href="${basePath}catalog.html" class="btn">Перейти в каталог</a>
             </div>
         `;
         
@@ -329,23 +382,58 @@ function renderProductPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
     const product = products.find(p => p.id === productId);
-    
+
+    // Определяем базовый путь
+    const basePath = window.location.pathname.includes('/pages/') ? '' : 'pages/';
+
     if (!product) {
-        window.location.href = 'pages/catalog.html';
+        window.location.href = basePath + 'catalog.html';
         return;
     }
-    
-    document.getElementById('productMainImage').textContent = url;
+
+    // Обновляем breadcrumb
+    document.getElementById('productTitleBreadcrumb').textContent = product.name;
+
+    // Главное изображение
+    const mainImage = document.getElementById('productMainImage');
+    if (mainImage) {
+        mainImage.innerHTML = `<img src="${product.images[0]}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">`;
+    }
+
+    // Миниатюры
+    const thumbnailsContainer = document.querySelector('.product-thumbnails');
+    if (thumbnailsContainer && product.images && product.images.length > 0) {
+        thumbnailsContainer.innerHTML = product.images.map((img, index) => `
+            <div class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}">
+                <img src="${img}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+        `).join('');
+
+        // Добавляем обработчики кликов для миниатюр
+        thumbnailsContainer.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Убираем активный класс у всех
+                thumbnailsContainer.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                // Добавляем активный класс текущей
+                this.classList.add('active');
+                // Меняем главное изображение
+                const newImage = this.dataset.image;
+                document.getElementById('productMainImage').innerHTML = 
+                    `<img src="${newImage}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">`;
+            });
+        });
+    }
+
     document.getElementById('productTitle').textContent = product.name;
     document.getElementById('productPrice').textContent = `${product.price.toLocaleString()} ₽`;
     document.getElementById('productOldPrice').textContent = product.oldPrice ? `${product.oldPrice.toLocaleString()} ₽` : '';
     document.getElementById('productRating').innerHTML = `★ ${product.rating} <span>(${product.reviews} отзывов)</span>`;
-    document.getElementById('productAvailability').innerHTML = product.inStock ? 
-        '<span style="color: var(--success);">В наличии</span>' : 
+    document.getElementById('productAvailability').innerHTML = product.inStock ?
+        '<span style="color: var(--success);">В наличии</span>' :
         '<span style="color: var(--danger);">Нет в наличии</span>';
     document.getElementById('productBrand').textContent = product.brand;
     document.getElementById('productDescription').textContent = product.description;
-    
+
     // Render specs
     const specsList = document.getElementById('productSpecs');
     if (specsList) {
@@ -356,7 +444,36 @@ function renderProductPage() {
             </div>
         `).join('');
     }
-    
+
+    // Рендер похожих товаров (той же категории)
+    const similarProductsGrid = document.getElementById('similarProducts');
+    if (similarProductsGrid) {
+        const similarProducts = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+        if (similarProducts.length > 0) {
+            similarProductsGrid.innerHTML = similarProducts.map(p => `
+                <a href="${basePath}product.html?id=${p.id}" class="product-card">
+                    <div class="product-image">
+                        <img src="${p.icon}" alt="${p.name}"
+                             onerror="this.onerror=null; this.src='../img/placeholder.jpg'">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${p.category.toUpperCase()}</div>
+                        <div class="product-title">${p.name}</div>
+                        <div class="product-price">${p.price.toLocaleString()} ₽</div>
+                        <div class="product-rating">
+                            ★ ${p.rating} <span>(${p.reviews})</span>
+                        </div>
+                        <button class="add-to-cart" onclick="event.preventDefault(); addToCart(${p.id})">
+                            В корзину
+                        </button>
+                    </div>
+                </a>
+            `).join('');
+        } else {
+            similarProductsGrid.parentElement.style.display = 'none';
+        }
+    }
+
     // Set up add to cart button
     const addBtn = document.getElementById('addToCartBtn');
     if (addBtn) {
@@ -365,7 +482,7 @@ function renderProductPage() {
             addToCart(product.id, quantity);
         };
     }
-    
+
     // Quantity buttons
     const quantityEl = document.getElementById('productQuantity');
     document.getElementById('quantityMinus').onclick = function() {
