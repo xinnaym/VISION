@@ -1,20 +1,20 @@
-### 1. Установка зависимостей
+### 1.
 ```bash
 cd server
 npm install
 ```
 
-### 2. Запуск сервера
+### 2. 
 ```bash
 cd server
 npm start
 ```
 
 ### 3. Запуск фронтенда
-`index.html` через Live Server
+`index.html` Go live whith Live Server
 
-### 4. Вход в админ-панель
+### 4. Admin pantl login path
 **URL:** `admin-panel/login.html`
 
 **Email:** `admin@vision.ru`  
-**Пароль:** `Admin123!`
+**Password:** `Admin123!`
