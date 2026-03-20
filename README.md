@@ -13,7 +13,7 @@ npm start
 ### 3. Запуск фронтенда
 `index.html` Go live whith Live Server
 
-### 4. Admin pantl login path
+### 4. Admin panel login path
 **URL:** `admin-panel/login.html`
 
 **Email:** `admin@vision.ru`  
