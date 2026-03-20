@@ -1,20 +1,15 @@
-### 1.
+### 1. Start server
 ```bash
 cd server
 npm install
-```
-
-### 2. 
-```bash
-cd server
 npm start
 ```
 
-### 3. Запуск фронтенда
+### 3. Start frontend
 `index.html` Go live whith Live Server
 
 ### 4. Admin panel login path
 **URL:** `admin-panel/login.html`
 
-**Email:** `admin@vision.ru`  
+**Email:** `admin@vision.ru`
 **Password:** `Admin123!`
